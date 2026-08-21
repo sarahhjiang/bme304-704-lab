@@ -670,8 +670,6 @@ Throughout the semester, both partners should demonstrate that they can:
 -   make meaningful commits;
 -   use descriptive commit messages;
 -   push work regularly;
--   open pull requests;
--   review their partner's pull requests;
 -   keep sensitive/raw biomedical data out of the repository; and
 -   help maintain the README.
 
