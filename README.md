@@ -1,2 +1,7 @@
-# bme304-704-git-lab
-Git fundamentals for BME 304/704, Fall 2026
+# BME 304L/704L, Fall 2026
+Prof. Jessilyn Dunn
+TAs: Leeor Hershkovich, Sarah Jiang, Jerry Yang
+
+This repo holds any relevant lab walkthroughs/quick lecture recaps during weekly lab sessions for BME Data Science.
+
+Lab 1: Git fundamentals for BME 304/704
