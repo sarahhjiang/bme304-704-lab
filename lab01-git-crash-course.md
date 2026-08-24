@@ -774,7 +774,13 @@ PULL AGAIN
 
 That's enough Git to successfully collaborate on your semester project.
 
+## nbstripout for collaboration 
+If you are collaborating on code with jupyter notebook files, you can run into a lot of merge conflicts from just updated metadata within the jupyter notebook files. One solution for this is to use a utility called `nbstripout` to remove all of the metadata and cell outputs from your jupyter notebooks in your repo. You install this at every local repo individually, so none of your other repos will be affected. Note: all collaborators will need to install this at their local copy of the repo to avoid conflicts.
 
+In a terminal in your local copy of your repo, run the following:
+``` bash
+pip install nbstripout && nbstripout --install
+```
 
 ***
 
