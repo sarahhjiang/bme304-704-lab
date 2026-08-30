@@ -44,7 +44,7 @@ Helpful equivalences:
 - $\sum x_i y_i - n\bar x \bar y = \sum (x_i - \bar x)(y_i - \bar y)$
 - $\sum x_i^2 - n\bar x^2 = \sum (x_i - \bar x)^2$
 
-**Linear Regression Matrix Form:** Imagine you now have 24 predictors that you're interested in using. Writing out $y_i = \beta_0 + \beta_1 * x_{i,1} + ... + \beta_25 * x_{i,25}$ repeatedly becomes impractical. This is where matrix notation becomes helpful. We can express the same relationship via 
+**Linear Regression Matrix Form:** Imagine you now have 24 predictors that you're interested in using. Writing out $y_n = \beta_0 + \beta_1 * x_{n,1} + ... + \beta_25 * x_{n,25}$ repeatedly becomes impractical. This is where matrix notation becomes helpful. We can express the same relationship via 
 $$\hat Y = X\vec\beta$$
 where $X$ is the **design matrix**: one row per observation, one column per parameter.
 
