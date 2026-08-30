@@ -77,23 +77,6 @@ $$\hat\beta = (X^TX)^{-1}X^TY$$
 
 This is the same optimization you performed with calculus in Section 1.1 — propose parameters, evaluate the error, minimize, but it now solves for all parameters at once instead of two.
 
-**The Hat Matrix (extra, not necessary for the course)**
-
-Substituting $\hat\beta$ back into the model gives the fitted values directly in terms of the observed ones:
-
-$$\hat Y = X\hat\beta = X(X^TX)^{-1}X^TY = HY, \qquad H = X(X^TX)^{-1}X^T$$
-
-$H$ is called the **hat matrix** because it "puts the hat on $Y$." It depends only on $X$ — the predictors determine it before you look at a single outcome value.
-
-Geometrically, $H$ is the orthogonal projection onto the column space of $X$: it is $n \times n$, symmetric, and idempotent ($H^2 = H$, since projecting an already-projected vector changes nothing). The residuals are the leftover component,
-
-$$\vec e = Y - \hat Y = (I - H)Y, \qquad \text{SSE} = \|(I-H)Y\|^2$$
-
-Two useful properties:
-
-- $\operatorname{tr}(H) = p + 1$, the number of parameters — the model's degrees of freedom.
-- The diagonal entries $h_{ii} \in [0,1]$ give the **leverage** of observation $i$: how strongly $y_i$ pulls its own fitted value. High-leverage points sit far from $\bar x$ and can dominate the fit.
-
 ---
 
 ## 3. Transformations and scaling
