@@ -116,7 +116,7 @@ $$\text{Loss}_{\text{LASSO}} = \sum_{i=1}^{m}(y_i - x_i^T\beta)^2 + \lambda\sum_
 
 **Regression → classification.** Threshold a continuous prediction: classify positive if $f(x) > T$. Setting $T = 0$ and absorbing the offset into $b$ gives a linear classifier via $\text{sign}(w^Tx + b)$. But sign outputs only $\pm 1$ — no confidence. Applying the logistic (sigmoid) function instead gives an output in $(0,1)$ you can read as a probability:
 
-$$p(X) = \frac{e^{\beta_0 + \beta_1 X}}{1 + e^{\beta_0 + \beta_1 X}} \quad \Longleftrightarrow \quad \log\!\left(\frac{p(X)}{1-p(X)}\right) = \beta_0 + \beta_1 X$$
+$$p(X) = \frac{e^{\beta_0 + \beta_1 X}}{1 + e^{\beta_0 + \beta_1 X}} \quad \Longleftrightarrow \quad \log\left(\frac{p(X)}{1-p(X)}\right) = \beta_0 + \beta_1 X$$
 
 Coefficients are interpreted on the **log-odds** scale, not the probability scale. Linear regression fits by least squares; logistic regression fits by maximum likelihood.
 
