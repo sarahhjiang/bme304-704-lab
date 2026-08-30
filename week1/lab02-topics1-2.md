@@ -11,7 +11,7 @@ If $r$ is close to $\pm 1$, fitting $f(x) = mx + b$ is reasonable. For one predi
 
 $$m = \frac{\sum (x_i - \bar x)(y_i - \bar y)}{\sum (x_i - \bar x)^2}, \qquad b = \bar y - m\bar x$$
 
-**Interpretation** (drill this — it shows up in 2.4):
+**Interpretation**:
 - $\beta_0$ = expected $y$ when $x = 0$ (baseline).
 - $\beta_1$ = expected change in $y$ per one-unit change in $x$.
 - Interpolating inside the observed range of $x$ is fine; extrapolating outside it is a modeling claim you have no data to support.
