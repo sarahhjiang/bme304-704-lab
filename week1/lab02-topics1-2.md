@@ -90,7 +90,7 @@ This is the same optimization you performed with calculus in Section 1.1 — pro
 
 $$X_{\text{norm}} = \frac{X - X_{\min}}{X_{\max} - X_{\min}}, \qquad X' = \frac{X - \mu}{\sigma}$$
 
-** Remember, *normalizations* scales the data to values in [0,1] while *standardization* transforms the data such that it is centered around 0 with standard deviation 1.
+** Remember, *normalizations* scales the data to values in [0,1] while *standardization* transforms the data such that it is centered around 0 with standard deviation 1 (i.e. N(0,1)).
 
 Two reasons this matters:
 1. Features with wildly different variances get weighted differently by the fitting procedure — LASSO will zero out a large-variance feature that carries real signal purely because of its scale.
