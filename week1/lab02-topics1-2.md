@@ -146,11 +146,17 @@ $R^2$ is a ratio, so it moves when *either* term moves. Two distinct things infl
 
 ### Mechanism 1: adding a predictor (fixed dataset, SST fixed)
 
-Here the $y$ values never change, so SST is fixed and every change in $R^2$ is a change in SSE.
+Here the $`y`$ values never change, so SST is fixed and every change in
+$`R^2`$ is a change in SSE.
 
-Fit a model with $p$ predictors, obtaining $\text{SSE}_p$. Now add a $(p+1)$-th column to $X$ and refit. The old solution is still available in the new parameter space — just set $\beta_{p+1} = 0$. OLS minimizes SSE over a strictly larger set that *contains* the previous solution, so:
+Fit a model with $`p`$ predictors, obtaining $`\text{SSE}_p`$. Now add a
+$`(p+1)`$-th column to $`X`$ and refit. The old solution is still available
+in the new parameter space — just set $`\beta_{p+1} = 0`$. OLS minimizes SSE
+over a strictly larger set that *contains* the previous solution, so:
 
-$$\text{SSE}_{p+1} \le \text{SSE}_p \quad \Longrightarrow \quad R^2_{p+1} \ge R^2_p$$
+```math
+\text{SSE}_{p+1} \le \text{SSE}_p \quad \Longrightarrow \quad R^2_{p+1} \ge R^2_p
+```
 
 The added feature can be pure noise and $R^2$ still won't go down. In the limit, with $n$ observations and $n-1$ predictors plus an intercept, you can fit the data exactly: SSE = 0, $R^2$ = 1, and the model has learned nothing.
 
