@@ -160,7 +160,7 @@ over a strictly larger set that *contains* the previous solution, so:
 
 The added feature can be pure noise and $R^2$ still won't go down. In the limit, with $n$ observations and $n-1$ predictors plus an intercept, you can fit the data exactly: SSE = 0, $R^2$ = 1, and the model has learned nothing.
 
-### Mechanism 2: widening the range of x (model fixed, SST changes)
+### Mechanism 2: widening the range of x (model fixed, SST changes) -- this is the case for the white/blue plot from lecture!
 
 Here the model is identical and the *sample* changes, so SST is no longer fixed. Decompose it:
 
