@@ -187,7 +187,7 @@ Now the origin represents the center of the dataset, and the covariance matrix d
 
 For the by-hand PCA calculation in Lab 4, this is why centering comes before computing
 
-\[ \frac{X^TX}{n-1}. \]
+$$ \frac{X^TX}{n-1}. $$
 
 ------------------------------------------------------------------------
 
