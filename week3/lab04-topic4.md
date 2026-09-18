@@ -237,9 +237,7 @@ The corresponding eigenvalues tell us **how much variance lies along those direc
 Therefore,
 
 $$
-\text{Explained variance ratio of PC}_j
-=
-\frac{\lambda_j}{\sum_k \lambda_k}.
+\text{Explained variance ratio of PC}_j = \frac{\lambda_j}{\sum_k \lambda_k}.
 $$
 
 A large eigenvalue means that principal component captures a large amount of the dataset's variance.
@@ -346,9 +344,7 @@ can make a curved relationship linearly separable in the transformed space.
 A kernel computes an inner product in an implicit transformed feature space:
 
 $$
-K(x_i,x_j)
-=
-\langle \phi(x_i), \phi(x_j) \rangle.
+K(x_i,x_j) = \langle \phi(x_i), \phi(x_j) \rangle.
 $$
 
 The key idea is:
@@ -414,11 +410,7 @@ Variation can come from:
 The observed difference can therefore be thought of as:
 
 $$
-\text{observed difference}
-=
-\text{underlying difference}
-+
-\text{random variation}.
+\text{observed difference} = \text{underlying difference} + \text{random variation}.
 $$
 
 
@@ -613,10 +605,7 @@ $$
 For a t-test:
 
 $$
-t
-=
-\frac{\text{observed difference}}
-{\text{standard error of the difference}}.
+t = \frac{\text{observed difference}} {\text{standard error of the difference}}.
 $$
 
 This explains why a difference cannot be interpreted by itself.
@@ -1117,10 +1106,7 @@ If you perform many tests, however, you have many opportunities to obtain a smal
 For 20 independent tests:
 
 $$
-P(\text{at least one false positive})
-=
-1-(1-0.05)^{20}
-\approx 0.64.
+P(\text{at least one false positive}) = 1-(1-0.05)^{20} \approx 0.64.
 $$
 
 So even if every null hypothesis is actually true, there would be about a 64% chance of seeing at least one $p<0.05$ result across 20 independent tests.
@@ -1152,9 +1138,7 @@ This is why multiple-comparison correction exists.
 One simple approach is:
 
 $$
-\alpha_{\text{adjusted}}
-=
-\frac{\alpha}{m},
+\alpha_{\text{adjusted}} = \frac{\alpha}{m},
 $$
 
 where $m$ is the number of tests.
@@ -1162,9 +1146,7 @@ where $m$ is the number of tests.
 Equivalently, adjusted p-values can be calculated as
 
 $$
-p_{\text{adjusted}}
-=
-\min(mp,1).
+p_{\text{adjusted}} = \min(mp,1).
 $$
 
 Bonferroni is simple and conservative.
@@ -1263,21 +1245,15 @@ The fold scores tell us both about **typical performance** and about **variation
 For binary classification:
 
 $$
-\text{Accuracy}
-=
-\frac{TP+TN}{TP+TN+FP+FN}
+\text{Accuracy} = \frac{TP+TN}{TP+TN+FP+FN}
 $$
 
 $$
-\text{Precision}
-=
-\frac{TP}{TP+FP}
+\text{Precision} = \frac{TP}{TP+FP}
 $$
 
 $$
-\text{Recall}
-=
-\frac{TP}{TP+FN}.
+\text{Recall} = \frac{TP}{TP+FN}.
 $$
 
 ### Intuition
