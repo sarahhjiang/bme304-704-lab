@@ -14,3 +14,7 @@ Week 0: Git fundamentals for BME 304/704 (8/24, 8/28)
 Week 1: Lines & Curves (8/31, 9/4)
 
 Week 2: Neighbors (9/14, 9/11)
+
+Week 3: Transformations (9/21, 9/18)
+
+<!-- add alpha for markdown injections -->
