@@ -158,7 +158,7 @@ A decision tree recursively segments the predictor space.
 
 A tree consists of:
 
-- **Decision/internal nodes:** apply a splitting rule such as \(X_j < t\)
+- **Decision/internal nodes:** apply a splitting rule such as $X_j < t$
 
 - **Branches:** represent the outcomes of the rule
 
@@ -202,7 +202,7 @@ It is **greedy** because it chooses the best split at the current step rather th
 
 ---
 
-## 7. Purity, Impurity, and Gain
+## 7. Purity, Impurity ($I$), and Gain
 
 A useful split creates child nodes that are more homogeneous than their parent.
 
@@ -214,31 +214,29 @@ If multiple classes are mixed together, the node is impure.
 
 Common classification impurity measures include:
 
-#### Gini impurity
+#### Gini impurity/index ($G$)
 
-\[
+$$
+\text{G} = \sum_{i=1}^{K} p_i(1-p_i) = 1 - \sum_{i=1}^{K} p_i^2
+$$
 
-G = \sum_k p_k(1-p_k)
+#### Entropy ($H$)
 
-\]
+$$
+H = -\sum_{i=1}^{K} p_i \log(p_i)
+$$
 
-#### Entropy
 
-\[
 
-H = -\sum_k p_k \log(p_k)
+#### Classification error ($E$)
 
-\]
+$$
+E = 1-\max_{{i=1,2,3,...,K}}(p_i) = 1 - p_{max}
+$$
 
-#### Classification error
-
-\[
-
-1-\max_k(p_k)
-
-\]
-
-where \(p_k\) is the proportion of observations belonging to class \(k\).
+where:
+- $K$: the number of classes
+- $p_i$: the proportion (probability) of samples belonging to class $i$
 
 ### Regression
 
@@ -252,33 +250,27 @@ Common measures include:
 
 ### Gain
 
-A candidate split is evaluated by comparing the impurity of the parent with the weighted impurity of its children:
+A candidate split is evaluated by comparing the impurity of the parent (before split) with the weighted impurity of its children (after split):
 
-\[
-
+$$
 \text{Gain}
-
 =
-
 I(P)
-
 -
-
-\frac{n_L}{n_P}I(L)
-
--
-
-\frac{n_R}{n_P}I(R)
-
-\]
+\left(
+\frac{n_L}{n_P} I(L)
++
+\frac{n_R}{n_P} I(R)
+\right)
+$$
 
 where:
 
-- \(P\) is the parent node
+- $P$ is the parent node
 
-- \(L\) and \(R\) are the child nodes
+- $L$ and $R$ are the child nodes
 
-- \(I(\cdot)\) is the chosen impurity measure
+- $I$ is the chosen impurity measure
 
 The child impurities are weighted by node size.
 
@@ -294,7 +286,7 @@ For example:
 
 ```text
 
-             X1 < 5?
+             X₁ < 5?
 
              /     \
 
@@ -302,13 +294,13 @@ For example:
 
            /         \
 
-       X2 < 3?      X3 < 8?
+       X₂ < 3?      X₃ < 8?
 
 ```
 
-The effect of `X2` only matters for observations that first satisfy `X1 < 5`.
+The effect of `X₂` only matters for observations that first satisfy `X₁ < 5`.
 
-This allows a tree to represent **interactions between predictors** without explicitly creating interaction terms such as `X1 * X2`.
+This allows a tree to represent **interactions between predictors** without explicitly creating interaction terms such as `X₁ * X₂`.
 
 ### Local Models
 
@@ -322,19 +314,25 @@ In this sense, trees can construct **local models** rather than forcing one glob
 
 ## 9. Why Trees Overfit
 
-If a tree is allowed to continue splitting, it can create increasingly small regions until it closely memorizes the training observations.
+Remember when we learned [KNN](../week3/lab03-topic3.md): a small $K$ can lead to overfitting because the model becomes too sensitive to individual training observations and noise.
+
+A similar idea applies to decision trees. We can think of **tree depth as playing a role similar to $K$ in KNN**: it controls the flexibility and complexity of the model.
+
+- **KNN:** smaller $K$ → more flexible → higher risk of overfitting
+- **Decision Tree:** greater depth → more flexible → higher risk of overfitting
+
+If a tree is allowed to continue splitting and grow deeper, it can create increasingly small regions until it closely memorizes the training observations.
 
 A very large tree can therefore have:
 
 - extremely low training error
-
 - high model complexity
-
 - high variance
-
 - poor generalization to new observations
 
 A smaller tree may introduce some additional bias while reducing variance and improving interpretability.
+
+This illustrates the **bias-variance tradeoff**: increasing model complexity can reduce bias but increase variance and the risk of overfitting.
 
 ### Early Stopping
 
@@ -342,13 +340,10 @@ A smaller tree may introduce some additional bias while reducing variance and im
 
 Examples include:
 
-- setting a maximum tree depth
-
-- requiring a minimum number of observations per node
-
-- requiring a minimum number of observations per leaf
-
-- requiring a minimum impurity improvement before splitting
+- setting a maximum tree depth → `max_depth`
+- requiring a minimum number of observations per node before splitting → `min_samples_split`
+- requiring a minimum number of observations in each leaf after splitting → `min_samples_leaf`
+- requiring a minimum impurity improvement before splitting → `min_impurity_decrease`
 
 ### Pruning
 
@@ -450,23 +445,19 @@ Some models provide importance information directly from their fitted structure.
 
 For multiple linear regression,
 
-\[
-
+$$
 \hat y = \beta_0 + \beta_1X_1+\cdots+\beta_pX_p
+$$
 
-\]
-
-the coefficient \(\beta_j\) describes how much the predicted dependent variable is expected to change when \(X_j\) increases by one unit, **holding the other predictors constant**.
+the coefficient $β_j$ describes how much the predicted dependent variable is expected to change when $X_j$ increases by one unit, **holding the other predictors constant**.
 
 Coefficient magnitude must be interpreted in the context of the units in which each predictor is measured.
 
 We can also evaluate whether an estimated coefficient is significantly different from zero. A common statistic is
 
-\[
-
+$$
 t = \frac{\hat{\beta}_j}{SE(\hat{\beta}_j)}
-
-\]
+$$
 
 which compares the estimated coefficient with its standard error.
 
@@ -514,7 +505,7 @@ A perturbation-based approach:
 
 Conceptually,
 
-\[
+$$
 
 \text{Importance}(X_j)
 
@@ -526,7 +517,7 @@ Conceptually,
 
 \text{Performance}_{perturbed}
 
-\]
+$$
 
 If performance changes very little, the feature may not be important to the model.
 
@@ -555,7 +546,6 @@ If two features contain similar information, disrupting one may have little effe
 **Feature ablation** measures importance by removing a feature and evaluating model performance without it.
 
 ```text
-
 Full feature set
 
        ↓
@@ -569,7 +559,6 @@ fit/evaluate model
        ↓
 
 compare performance
-
 ```
 
 If performance remains similar, the feature may not contribute much unique predictive information.
@@ -585,7 +574,6 @@ Ablation can be used with models that do or do not have built-in feature-importa
 Feature selection, decision trees, and feature importance address different parts of the same modeling problem:
 
 ```text
-
 Many possible predictors
 
         ↓
@@ -605,7 +593,6 @@ How do we map predictors → outcome?
 FEATURE IMPORTANCE
 
 What information does the fitted model rely on?
-
 ```
 
 Decision trees connect these ideas particularly well because they:
