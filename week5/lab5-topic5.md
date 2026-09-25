@@ -425,7 +425,7 @@ Feature selection changes or reduces the predictors available to the model.
 
 > **How relevant is each feature to the fitted model's predictions?**
 
-Feature importance helps us interpret the behavior of a model after or during fitting.
+Feature importance helps us interpret the behavior of a model after or during fitting. You use feature importance for feature selection. 
 
 ---
 
@@ -498,17 +498,7 @@ A perturbation-based approach:
 Conceptually,
 
 $$
-
-\text{Importance}(X_j)
-
-\approx
-
-\text{Performance}_{baseline}
-
--
-
-\text{Performance}_{perturbed}
-
+\text{Importance}(X_j) \approx \text{Performance}_{baseline} - \text{Performance}_{perturbed}
 $$
 
 If performance changes very little, the feature may not be important to the model.
