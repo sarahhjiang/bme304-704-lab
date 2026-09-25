@@ -425,7 +425,7 @@ Feature selection changes or reduces the predictors available to the model.
 
 > **How relevant is each feature to the fitted model's predictions?**
 
-Feature importance helps us interpret the behavior of a model after or during fitting. You use feature importance for feature selection. 
+Feature importance helps us interpret the behavior of a model after or during fitting. You can use feature importance to select features. 
 
 ---
 
