@@ -253,15 +253,7 @@ Common measures include:
 A candidate split is evaluated by comparing the impurity of the parent (before split) with the weighted impurity of its children (after split):
 
 $$
-\text{Gain}
-=
-I(P)
--
-\left(
-\frac{n_L}{n_P} I(L)
-+
-\frac{n_R}{n_P} I(R)
-\right)
+\text{Gain} = I(P) - \left( \frac{n_L}{n_P} I(L) + \frac{n_R}{n_P} I(R) \right)
 $$
 
 where:
