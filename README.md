@@ -19,4 +19,5 @@ Week 4: Transformations (9/21, 9/18)
 
 Week 5: Trees (9/28, 9/25)
 
+Week 6: Forests (10/5, 10/2)
 <!-- add alpha for markdown injections -->
