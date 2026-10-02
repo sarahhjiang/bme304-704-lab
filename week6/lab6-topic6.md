@@ -40,7 +40,7 @@ For example:
 
 A classifier that predicts the majority class for every observation would achieve
 
-$\n\text{Accuracy} = \frac{99{,}000}{100{,}000}=99\%\n$
+$\text{Accuracy} = \frac{99{,}000}{100{,}000}=99\%$
 
 despite having no ability to detect the positive class.
 
@@ -195,13 +195,13 @@ Therefore, synthetic sampling should not automatically be assumed to improve gen
 
 Prediction error can be understood through three components:
 
-$\n\text{Expected Error}
+$\text{Expected Error}
 =
 \text{Bias}^2
 +
 \text{Variance}
 +
-\text{Noise}\n$
+\text{Noise}$
 
 ### Bias
 
@@ -305,7 +305,7 @@ If several models make somewhat different errors, averaging them reduces the inf
 
 Thus, bagging primarily aims to:
 
-$\n\boxed{\text{reduce variance}}\n$
+$\boxed{\text{reduce variance}}$
 
 while preserving relatively low bias.
 
@@ -328,31 +328,31 @@ This principle becomes especially important in random forests.
 
 # 7. Bootstrap Samples and Out-of-Bag Observations
 
-Suppose the original training set contains \(n\) observations.
+Suppose the original training set contains $n$ observations.
 
-A bootstrap dataset is created by drawing \(n\) times **with replacement**.
+A bootstrap dataset is created by drawing $n$ times **with replacement**.
 
 For a particular observation, the probability of not being selected on one draw is
 
-$\n1-\frac{1}{n}.\n$
+$1-\frac{1}{n}.$
 
-The probability of never being selected in \(n\) draws is
+The probability of never being selected in $n$ draws is
 
-$\n\left(1-\frac{1}{n}\right)^n.\n$
+$\left(1-\frac{1}{n}\right)^n.$
 
-As \(n\rightarrow\infty\),
+As $n\rightarrow\infty$,
 
-$\n\left(1-\frac{1}{n}\right)^n \rightarrow e^{-1}\approx0.368.\n$
+$\left(1-\frac{1}{n}\right)^n \rightarrow e^{-1}\approx0.368.$
 
 Therefore, approximately **36.8%** of observations are left out of a particular bootstrap sample.
 
 Equivalently, approximately
 
-$\n1-e^{-1}\approx0.632\n$
+$1-e^{-1}\approx0.632$
 
 or **63.2% of the unique original observations** appear at least once in a typical bootstrap sample.
 
-This does **not** mean the bootstrap dataset contains only \(0.632n\) rows. It still contains \(n\) draws; some original observations simply appear multiple times.
+This does **not** mean the bootstrap dataset contains only $0.632n$ rows. It still contains $n$ draws; some original observations simply appear multiple times.
 
 ---
 
@@ -360,10 +360,10 @@ This does **not** mean the bootstrap dataset contains only \(0.632n\) rows. It s
 
 The observations not selected for a particular tree are its **out-of-bag observations**.
 
-For observation \(i\):
+For observation $i$:
 
-1. identify every tree for which \(i\) was OOB
-2. predict \(i\) using those trees
+1. identify every tree for which $i$ was OOB
+2. predict $i$ using those trees
 3. aggregate those predictions
 4. compare the OOB prediction with the true outcome
 
@@ -434,7 +434,7 @@ This parameter controls an important tradeoff.
 
 Trees may become weak because useful predictors are frequently unavailable.
 
-$\n\rightarrow \text{higher bias}\n$
+$\rightarrow \text{higher bias}$
 
 ### Too many features
 
@@ -442,7 +442,7 @@ The same strong predictors repeatedly dominate.
 
 Trees become more similar.
 
-$\n\rightarrow \text{higher correlation among trees}\n$
+$\rightarrow \text{higher correlation among trees}$
 
 and the benefit of ensembling decreases.
 
@@ -477,7 +477,7 @@ The effect of the biomarker therefore changes depending on age.
 
 Tree-based models can capture such interactions **without manually creating an explicit interaction term** such as
 
-$\n\text{age}\times\text{biomarker}.\n$
+$\text{age}\times\text{biomarker}.$
 
 Random forests retain this ability while stabilizing predictions through aggregation.
 
@@ -512,15 +512,15 @@ Random forests can also define a model-based measure of similarity between obser
 
 Two observations are considered similar when they repeatedly land in the same terminal leaf.
 
-$\n\text{Proximity}(i,j)
+$\text{Proximity}(i,j)
 =
 \frac{\text{number of trees where }i\text{ and }j\text{ share a leaf}}
-{\text{total number of trees}}\n$
+{\text{total number of trees}}$
 
 Interpretation:
 
-- proximity \(=0\): never share a leaf
-- proximity \(=1\): always share a leaf
+- proximity $=0$: never share a leaf
+- proximity $=1$: always share a leaf
 
 This is not ordinary Euclidean distance. It is a **learned similarity induced by the forest**.
 
@@ -544,7 +544,7 @@ A simplified idea is:
 
 Boosting therefore primarily attempts to:
 
-$\n\boxed{\text{reduce bias}}\n$
+$\boxed{\text{reduce bias}}$
 
 by progressively improving a collection of relatively simple learners.
 
@@ -608,7 +608,7 @@ These parameters interact: increasing the number or complexity of trees can impr
 
 A point prediction alone does not tell us how much confidence to place in that prediction.
 
-For example, two patients could both receive a predicted disease probability of \(0.60\), while the model has much stronger evidence for one prediction than the other.
+For example, two patients could both receive a predicted disease probability of $0.60$, while the model has much stronger evidence for one prediction than the other.
 
 Quantifying uncertainty can help:
 
@@ -767,9 +767,9 @@ A model can rank observations correctly while still producing misleading probabi
 
 For classification:
 
-> Among predictions assigned probability \(p\), does the outcome occur approximately \(p\) of the time?
+> Among predictions assigned probability $p$, does the outcome occur approximately $p$ of the time?
 
-For example, among many predictions near \(0.8\), a well-calibrated model should have the positive outcome occur roughly 80% of the time.
+For example, among many predictions near $0.8$, a well-calibrated model should have the positive outcome occur roughly 80% of the time.
 
 ---
 
@@ -782,9 +782,9 @@ A calibration curve / reliability diagram compares:
 
 Perfect calibration follows the diagonal relationship
 
-$\n\text{predicted probability}
+$\text{predicted probability}
 =
-\text{observed frequency}.\n$
+\text{observed frequency}.$
 
 A model may be:
 
@@ -822,47 +822,47 @@ Recalibration changes the interpretation of the output without necessarily chang
 
 The major ideas fit together:
 
-$\n\boxed{\text{Sampling}}
+$\boxed{\text{Sampling}}
 \rightarrow
 \boxed{\text{Different training sets}}
 \rightarrow
-\boxed{\text{Different fitted models}}\n$
+\boxed{\text{Different fitted models}}$
 
 Decision trees respond strongly to these changes:
 
-$\n\boxed{\text{Tree flexibility}}
+$\boxed{\text{Tree flexibility}}
 \rightarrow
-\boxed{\text{Low bias + high variance}}\n$
+\boxed{\text{Low bias + high variance}}$
 
 Bagging deliberately exploits sampling variation:
 
-$\n\boxed{\text{Bootstrap samples}}
+$\boxed{\text{Bootstrap samples}}
 \rightarrow
 \boxed{\text{Many diverse trees}}
 \rightarrow
 \boxed{\text{Average predictions}}
 \rightarrow
-\boxed{\text{Lower variance}}\n$
+\boxed{\text{Lower variance}}$
 
 Random forests add feature randomness:
 
-$\n\boxed{\text{Bagging + random feature subsets}}
+$\boxed{\text{Bagging + random feature subsets}}
 \rightarrow
 \boxed{\text{Less correlated trees}}
 \rightarrow
-\boxed{\text{More effective variance reduction}}\n$
+\boxed{\text{More effective variance reduction}}$
 
 Variation across models can then provide information about prediction stability:
 
-$\n\boxed{\text{Model disagreement}}
+$\boxed{\text{Model disagreement}}
 \rightarrow
-\boxed{\text{Signal of predictive uncertainty}}\n$
+\boxed{\text{Signal of predictive uncertainty}}$
 
 Finally:
 
-$\n\boxed{\text{Uncertainty estimate}}
-\neq
-\boxed{\text{Automatically trustworthy probability}}\n$
+$\boxed{\text{Uncertainty estimate}}
+eq
+\boxed{\text{Automatically trustworthy probability}}$
 
 so we evaluate **calibration**.
 
@@ -894,7 +894,7 @@ so we evaluate **calibration**.
 5. **Bagging primarily reduces variance by averaging diverse models.**
 6. **Boosting primarily reduces bias by sequentially correcting errors.**
 7. **Random forests combine bootstrap sampling with random feature selection to decorrelate trees.**
-8. **About 63.2% of unique observations appear in a typical size-\(n\) bootstrap sample; about 36.8% are OOB for that tree.**
+8. **About 63.2% of unique observations appear in a typical size-$n$ bootstrap sample; about 36.8% are OOB for that tree.**
 9. **OOB observations provide a built-in way to estimate predictive performance.**
 10. **Random forests can capture nonlinearities and interactions without explicitly specifying interaction terms.**
 11. **Feature importance and forest proximity are properties of the fitted forest and should be interpreted accordingly.**
