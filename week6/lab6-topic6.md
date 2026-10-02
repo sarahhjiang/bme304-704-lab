@@ -40,7 +40,7 @@ For example:
 
 A classifier that predicts the majority class for every observation would achieve
 
-$$\n\text{Accuracy} = \frac{99{,}000}{100{,}000}=99\%\n$$
+$\n\text{Accuracy} = \frac{99{,}000}{100{,}000}=99\%\n$
 
 despite having no ability to detect the positive class.
 
@@ -195,13 +195,13 @@ Therefore, synthetic sampling should not automatically be assumed to improve gen
 
 Prediction error can be understood through three components:
 
-$$\n\text{Expected Error}
+$\n\text{Expected Error}
 =
 \text{Bias}^2
 +
 \text{Variance}
 +
-\text{Noise}\n$$
+\text{Noise}\n$
 
 ### Bias
 
@@ -305,7 +305,7 @@ If several models make somewhat different errors, averaging them reduces the inf
 
 Thus, bagging primarily aims to:
 
-$$\n\boxed{\text{reduce variance}}\n$$
+$\n\boxed{\text{reduce variance}}\n$
 
 while preserving relatively low bias.
 
@@ -334,21 +334,21 @@ A bootstrap dataset is created by drawing \(n\) times **with replacement**.
 
 For a particular observation, the probability of not being selected on one draw is
 
-$$\n1-\frac{1}{n}.\n$$
+$\n1-\frac{1}{n}.\n$
 
 The probability of never being selected in \(n\) draws is
 
-$$\n\left(1-\frac{1}{n}\right)^n.\n$$
+$\n\left(1-\frac{1}{n}\right)^n.\n$
 
 As \(n\rightarrow\infty\),
 
-$$\n\left(1-\frac{1}{n}\right)^n \rightarrow e^{-1}\approx0.368.\n$$
+$\n\left(1-\frac{1}{n}\right)^n \rightarrow e^{-1}\approx0.368.\n$
 
 Therefore, approximately **36.8%** of observations are left out of a particular bootstrap sample.
 
 Equivalently, approximately
 
-$$\n1-e^{-1}\approx0.632\n$$
+$\n1-e^{-1}\approx0.632\n$
 
 or **63.2% of the unique original observations** appear at least once in a typical bootstrap sample.
 
@@ -434,7 +434,7 @@ This parameter controls an important tradeoff.
 
 Trees may become weak because useful predictors are frequently unavailable.
 
-$$\n\rightarrow \text{higher bias}\n$$
+$\n\rightarrow \text{higher bias}\n$
 
 ### Too many features
 
@@ -442,7 +442,7 @@ The same strong predictors repeatedly dominate.
 
 Trees become more similar.
 
-$$\n\rightarrow \text{higher correlation among trees}\n$$
+$\n\rightarrow \text{higher correlation among trees}\n$
 
 and the benefit of ensembling decreases.
 
@@ -477,7 +477,7 @@ The effect of the biomarker therefore changes depending on age.
 
 Tree-based models can capture such interactions **without manually creating an explicit interaction term** such as
 
-$$\n\text{age}\times\text{biomarker}.\n$$
+$\n\text{age}\times\text{biomarker}.\n$
 
 Random forests retain this ability while stabilizing predictions through aggregation.
 
@@ -512,10 +512,10 @@ Random forests can also define a model-based measure of similarity between obser
 
 Two observations are considered similar when they repeatedly land in the same terminal leaf.
 
-$$\n\text{Proximity}(i,j)
+$\n\text{Proximity}(i,j)
 =
 \frac{\text{number of trees where }i\text{ and }j\text{ share a leaf}}
-{\text{total number of trees}}\n$$
+{\text{total number of trees}}\n$
 
 Interpretation:
 
@@ -544,7 +544,7 @@ A simplified idea is:
 
 Boosting therefore primarily attempts to:
 
-$$\n\boxed{\text{reduce bias}}\n$$
+$\n\boxed{\text{reduce bias}}\n$
 
 by progressively improving a collection of relatively simple learners.
 
@@ -782,9 +782,9 @@ A calibration curve / reliability diagram compares:
 
 Perfect calibration follows the diagonal relationship
 
-$$\n\text{predicted probability}
+$\n\text{predicted probability}
 =
-\text{observed frequency}.\n$$
+\text{observed frequency}.\n$
 
 A model may be:
 
@@ -822,47 +822,47 @@ Recalibration changes the interpretation of the output without necessarily chang
 
 The major ideas fit together:
 
-$$\n\boxed{\text{Sampling}}
+$\n\boxed{\text{Sampling}}
 \rightarrow
 \boxed{\text{Different training sets}}
 \rightarrow
-\boxed{\text{Different fitted models}}\n$$
+\boxed{\text{Different fitted models}}\n$
 
 Decision trees respond strongly to these changes:
 
-$$\n\boxed{\text{Tree flexibility}}
+$\n\boxed{\text{Tree flexibility}}
 \rightarrow
-\boxed{\text{Low bias + high variance}}\n$$
+\boxed{\text{Low bias + high variance}}\n$
 
 Bagging deliberately exploits sampling variation:
 
-$$\n\boxed{\text{Bootstrap samples}}
+$\n\boxed{\text{Bootstrap samples}}
 \rightarrow
 \boxed{\text{Many diverse trees}}
 \rightarrow
 \boxed{\text{Average predictions}}
 \rightarrow
-\boxed{\text{Lower variance}}\n$$
+\boxed{\text{Lower variance}}\n$
 
 Random forests add feature randomness:
 
-$$\n\boxed{\text{Bagging + random feature subsets}}
+$\n\boxed{\text{Bagging + random feature subsets}}
 \rightarrow
 \boxed{\text{Less correlated trees}}
 \rightarrow
-\boxed{\text{More effective variance reduction}}\n$$
+\boxed{\text{More effective variance reduction}}\n$
 
 Variation across models can then provide information about prediction stability:
 
-$$\n\boxed{\text{Model disagreement}}
+$\n\boxed{\text{Model disagreement}}
 \rightarrow
-\boxed{\text{Signal of predictive uncertainty}}\n$$
+\boxed{\text{Signal of predictive uncertainty}}\n$
 
 Finally:
 
-$$\n\boxed{\text{Uncertainty estimate}}
+$\n\boxed{\text{Uncertainty estimate}}
 \neq
-\boxed{\text{Automatically trustworthy probability}}\n$$
+\boxed{\text{Automatically trustworthy probability}}\n$
 
 so we evaluate **calibration**.
 
