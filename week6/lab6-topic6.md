@@ -1,4 +1,4 @@
-# Unit 06 Recap: Sampling, Ensembles, Random Forests, and Uncertainty
+# Sampling, Ensembles, Random Forests, and Uncertainty
 
 ## Big Picture
 
