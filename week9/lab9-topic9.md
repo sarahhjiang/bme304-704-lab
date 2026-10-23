@@ -43,7 +43,11 @@ The meaning of a weight matters. A large interaction strength might mean “clos
 For a simple unweighted graph, the **adjacency matrix** has entries
 
 $$
-A_{ij}=\begin{cases}1,&\text{if an edge connects }i\text{ to }j,\\0,&\text{otherwise.}\end{cases}
+A_{ij} =
+\begin{cases}
+1, & \text{if an edge connects } i \text{ to } j,\\
+0, & \text{otherwise.}
+\end{cases}
 $$
 
 For an undirected graph, $A=A^T$. Without self-loops, the diagonal is zero. In this setting, a row sum gives a node's degree, and the sum of all entries is $2|E|$ because each edge appears twice.
@@ -132,8 +136,15 @@ It compares shared neighbors with all distinct neighbors. A larger score suggest
 A perceptron first calculates a weighted sum and then applies a threshold:
 
 $$
-z=\mathbf{w}^T\mathbf{x}+b,\qquad
-\hat y=\begin{cases}1,&z\ge0,\\0,&z<0.\end{cases}
+z = \mathbf{w}^T \mathbf{x} + b
+$$
+
+$$
+\hat{y} =
+\begin{cases}
+1, & \text{if } z \geq 0,\\
+0, & \text{if } z < 0.
+\end{cases}
 $$
 
 The weights control contributions from the inputs; the bias shifts the boundary. A single perceptron has a linear decision boundary. It can represent OR, but not XOR. 
